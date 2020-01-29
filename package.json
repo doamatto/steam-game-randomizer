@@ -24,5 +24,8 @@
   "homepage": "https://github.com/doamatto/steam-game-randomizer#readme",
   "devDependencies": {
     "jslint": "^0.12.1"
+  },
+  "optionalDependencies": {
+    "express": "^4.17.1"
   }
 }
