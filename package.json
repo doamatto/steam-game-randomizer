@@ -27,5 +27,8 @@
   },
   "optionalDependencies": {
     "express": "^4.17.1"
+  },
+  "dependencies": {
+    "https": "^1.0.0"
   }
 }
