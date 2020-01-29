@@ -1,0 +1,28 @@
+{
+  "name": "random-steam-game-picker",
+  "version": "1.0.0",
+  "description": "Picks a random Steam game for you to play",
+  "main": "main.js",
+  "scripts": {
+    "test": "test-connect.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doamatto/steam-game-randomizer.git"
+  },
+  "keywords": [
+    "steam",
+    "game",
+    "picker",
+    "random"
+  ],
+  "author": "doamatto.xyz",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/doamatto/steam-game-randomizer/issues"
+  },
+  "homepage": "https://github.com/doamatto/steam-game-randomizer#readme",
+  "devDependencies": {
+    "jslint": "^0.12.1"
+  }
+}
