@@ -19,7 +19,7 @@
 
 var game_count;
 const exec = require('child_process');
-const config = require('./config.json');
+const config = require('../config.json');
 
 try {
     require.resolve("https");
