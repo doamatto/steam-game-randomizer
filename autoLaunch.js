@@ -19,7 +19,7 @@
 
 var game_count;
 const exec = require('child_process');
-const config = require('../config.json');
+const config = require('./config.json');
 
 try {
     require.resolve("https");
@@ -32,7 +32,7 @@ const https = require("https");
 
 function fetch() {
     https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${config.steamID}&include_appinfo=1`, function(res) {
-        var body;
+        var body = "";
         res.on("data", function(chunk) { body += chunk;});
         res.on("end", function() {
             return random_game(body);
