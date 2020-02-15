@@ -49,11 +49,7 @@ function random_game(data) {
     return callback(appID, appName);
 }
 
-function callback(appID, appName, autoLaunch) {
-    if(autoLaunch){ // Checks if you want to auto launch the game
-        exec(`steam://run/${appID}`);
-        console.log(`Opening ${appName} (${appID}). Have fun!`);
-    } else {
-        console.log(`Here's a random game: ${appName} (${appID}). You can open it via Steam or by going to "steam://run${appID}"`);
-    }
+function callback(appID, appName) {
+    exec(`steam://run/${appID}`);
+    console.log(`Opening ${appName} (${appID}). Have fun!`);
 }

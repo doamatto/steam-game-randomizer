@@ -4,7 +4,9 @@
   "description": "Picks a random Steam game for you to play",
   "main": "main.js",
   "scripts": {
-    "test": "test-connect.js"
+    "test": "./cli/test-connect.js",
+    "run-auto": "./cli/autoLaunch.js",
+    "run": "./cli/noAutoLaunch.js"
   },
   "repository": {
     "type": "git",
