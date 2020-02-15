@@ -2,11 +2,11 @@
 
 There's three commands that you can use for this tool in the CLI; four to five if you count how to turn on the web server.
 
-- `npm run-auto`
+- `npm start-auto`
 
 > This command checks the Steam profile for a game and then automatically opens it (if you have Steam installed). Otherwise, it may make a popup prompting how you'd like to open a file (a common thing Windows does when it's confused). 
 
-- `npm run`
+- `npm start`
 
 > This command checks the Steam profile for a game and shows you the name of it, as well as the Steam game's ID. It also provides a link you can use the open the game, if you need it.
 

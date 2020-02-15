@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "./cli/test-connect.js",
-    "run-auto": "./cli/autoLaunch.js",
-    "run": "./cli/noAutoLaunch.js"
+    "start-auto": "./cli/autoLaunch.js",
+    "start": "./cli/noAutoLaunch.js"
   },
   "repository": {
     "type": "git",
