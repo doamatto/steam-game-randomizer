@@ -30,16 +30,14 @@ try {
 
 const https = require("https");
 
-function fetch() {
-    https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${config.steamID}&include_appinfo=1`, function(res) {
-        var body = "";
-        res.on("data", function(chunk) { body += chunk;});
-        res.on("end", function() {
-            return random_game(body);
-        });
-        res.on("error", function(e) { console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)});
+https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${config.steamID}&include_appinfo=1`, function(res) {
+    var body = "";
+    res.on("data", function(chunk) { body += chunk;});
+    res.on("end", function() {
+        return random_game(body);
     });
-}
+    res.on("error", function(e) { console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)});
+});
 
 function random_game(data) {
     var data_parsed = JSON.parse(data);
