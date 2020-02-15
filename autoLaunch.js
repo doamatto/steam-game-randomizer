@@ -18,7 +18,7 @@
 //   
 
 var game_count;
-const exec = require('child_process');
+const cp = require('child_process');
 const config = require('./config.json');
 
 try {
@@ -48,6 +48,6 @@ function random_game(data) {
 }
 
 function callback(appID, appName) {
-    exec(`steam://run/${appID}`);
+    cp.exec(`steam://run/${appID}`, function(err, stdin,stderr){});
     console.log(`Opening ${appName} (${appID}). Have fun!`);
 }
