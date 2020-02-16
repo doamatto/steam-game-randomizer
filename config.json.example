@@ -1,8 +1,0 @@
-{
-    "STEAM_API_KEY": "",
-    "MULTI_USER": "false",
-    "STEAM_ID": "",
-
-    "PORT": "6420",
-    "DOMAIN": "localhost"
-}
