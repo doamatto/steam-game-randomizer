@@ -40,5 +40,7 @@ https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${c
         var appName = data_parsed.response.games[random_game_no].name;
         console.log(`Here's a random game: ${appName} (${appID}). You can open it via Steam or by going to "steam://run/${appID}"`);
     });
-    res.on("error", function(e) { console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)});
+    res.on("error", function(e) {
+        console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e);
+    });
 });
