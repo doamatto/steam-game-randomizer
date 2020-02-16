@@ -34,20 +34,12 @@ https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${c
     var body = "";
     res.on("data", function(chunk) { body += chunk;});
     res.on("end", function() {
-        return random_game(body);
+        var data_parsed = JSON.parse(data);
+        var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)); // Randomly grabs one of the games it finds in the JSON data
+        var appID = data_parsed.response.games[random_game_no].appid;
+        var appName = data_parsed.response.games[random_game_no].name;
+        cp.exec(`steam://run/${appID}`, function(err,stdin,stderr){});
+        console.log(`Opening ${appName} (${appID}). Have fun!`);
     });
     res.on("error", function(e) { console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)});
 });
-
-function random_game(data) {
-    var data_parsed = JSON.parse(data);
-    var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)); // Randomly grabs one of the games it finds in the JSON data
-    var appID = data_parsed.response.games[random_game_no].appid;
-    var appName = data_parsed.response.games[random_game_no].name;
-    return callback(appID, appName);
-}
-
-function callback(appID, appName) {
-    cp.exec(`steam://run/${appID}`, function(err, stdin,stderr){});
-    console.log(`Opening ${appName} (${appID}). Have fun!`);
-}
