@@ -42,6 +42,14 @@ app.get("/", function(req, res) {
     res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get("/style.css", function(res) {
+    res.sendFile(__dirname + "/views/style.css");
+});
+
+app.get("/webClient.js", function(res) {
+    res.sendFile(__dirname + "/views/webClient.js");
+});
+
 app.get("/r", function(req,res) {
     var steamID = req.query.steamID; // Fetch steam ID from request
     https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${steamID}&include_appinfo=1`, function(res) {
