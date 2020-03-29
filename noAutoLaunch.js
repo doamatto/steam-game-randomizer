@@ -29,7 +29,7 @@ try {
 
 const https = require("https");
 
-process.argv.forEach(function (steamID){
+process.argv.slice(2).forEach(function (steamID){
     https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${steamID}}&include_appinfo=1&include_played_free_games=1`, function(res) {
         var body = "";
         res.on("data", function(chunk) { body += chunk;});

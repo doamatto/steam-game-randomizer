@@ -17,6 +17,8 @@
 //   along with random-steam-game-picker.  If not, see <https://www.gnu.org/licenses/>.
 //   
 
+const config = require("./config.json");
+
 try {
     require.resolve("https");
 } catch(e) {
@@ -27,7 +29,7 @@ try {
 const https = require("https");
 
 try {
-    https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${steamKEY}&steamid=${steamID}&include_appinfo=1`, function(res) {
+    https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=76561198185019113&include_appinfo=1`, function(res) {
             res.on("error", function(e) { console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)});
     });
 } catch (e) {

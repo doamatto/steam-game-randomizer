@@ -48,7 +48,7 @@ app.get("/r", function(req,res) {
         var body = "";
         res.on("data", function(chunk) { body += chunk;});
         res.on("end", function() {
-            var data_parsed = JSON.parse(body);
+            var data_parsed = JSON.parse(data);
             var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)); // Randomly grabs one of the games it finds in the JSON data
             var appID = data_parsed.response.games[random_game_no].appid;
             var appName = data_parsed.response.games[random_game_no].name;
