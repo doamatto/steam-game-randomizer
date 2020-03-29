@@ -1,6 +1,6 @@
 # Random Steam Game Picker
 
-This is a simple tool that can look in your profile's game inventory (granted you have a public profile and game activity) and randomly give you a game to play. This is nice for people who don't know what to play or have way too many games.
+This is a simple tool that can look in your profile's game inventory (granted you have a public profile and game activity) and randomly give you a game to play. This is nice for people who don't know what to play or have wa y too many games.
 
 **Q:** Is this both CLI and web?
 

@@ -58,7 +58,6 @@ app.get("/r", function(req,res) {
             console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e);
         });
     });
-    res.sendFile(__dirname + "/views/index.html");
 });
 
 const listener = app.listen(config.web_port, function() {

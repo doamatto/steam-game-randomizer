@@ -17,7 +17,6 @@
 //   along with random-steam-game-picker.  If not, see <https://www.gnu.org/licenses/>.
 //   
 
-var game_count;
 const cp = require('child_process');
 const config = require('./config.json');
 
@@ -30,18 +29,21 @@ try {
 
 const https = require("https");
 
-https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${config.steamID}&include_appinfo=1`, function(res) {
-    var body = "";
-    res.on("data", function(chunk) { body += chunk;});
-    res.on("end", function() {
-        var data_parsed = JSON.parse(data);
-        var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)); // Randomly grabs one of the games it finds in the JSON data
-        var appID = data_parsed.response.games[random_game_no].appid;
-        var appName = data_parsed.response.games[random_game_no].name;
-        cp.exec(`steam://run/${appID}`, function(err,stdin,stderr){});
-        console.log(`Opening ${appName} (${appID}). Have fun!`);
-    });
-    res.on("error", function(e) {
-        console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e );
+process.argv.forEach(function (steamID) {
+    https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${steamID}&include_appinfo=1`, function(res) {
+        var body = "";
+        res.on("data", function(chunk) { body += chunk;});
+        res.on("end", function() {
+            var data_parsed = JSON.parse(body);
+            var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)); // Randomly grabs one of the games it finds in the JSON data
+            var appID = data_parsed.response.games[random_game_no].appid;
+            var appName = data_parsed.response.games[random_game_no].name;
+            cp.exec(`steam://run/${appID}`, function(err,stdin,stderr){});
+            console.log(`Opening ${appName} (${appID}). Have fun!`);
+        });
+        res.on("error", function(e) {
+            console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e );
+        });
     });
 });
+
