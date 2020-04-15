@@ -1,4 +1,5 @@
 # Random Steam Game Picker
+[![Build Status](https://travis-ci.org/doamatto/steam-game-randomizer.svg?branch=master)](https://travis-ci.org/doamatto/steam-game-randomizer)
 
 This is a simple tool that can look in your profile's game inventory (granted you have a public profile and game activity) and randomly give you a game to play. This is nice for people who don't know what to play or have wa y too many games.
 
