@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/doamatto/steam-game-randomizer#readme",
   "devDependencies": {
+    "lodash": ">=4.17.19",
     "jshint": "^2.11.0"
   },
   "optionalDependencies": {
