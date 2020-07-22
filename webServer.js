@@ -1,35 +1,16 @@
-//   
-//   * This file is a part of random-steam-game-picker
-//   * webServer.js created by doamatto on 02/16/2020
-//   * © 2020 doamatto. All rights reserved.
-//   
-//   random-steam-game-picker is free software: you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License as published by
-//   the Free Software Foundation, either version 3 of the License, or
-//   (at your option) any later version.
-//   
-//   random-steam-game-picker is distributed in the hope that it will be useful,
-//   but WITHOUT ANY WARRANTY; without even the implied warranty of
-//   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//   GNU General Public License for more details.
-//   
-//   You should have received a copy of the GNU General Public License
-//   along with random-steam-game-picker.  If not, see <https://www.gnu.org/licenses/>.
-//   
-
 try {
     require.resolve("express");
 } catch(e) {
-    console.error("The module \"express\" isn't installed. You can manually install by running \"npm i https\"");
+    console.error("\"express\" isn't installed. You can do install it with \"npm i express\"");
     process.exit(e.code);
-} // Make sure Express is installed
+} // Ensure Express is installed
 
 try {
     require.resolve("https");
 } catch(e) {
-    console.error("The module \"https\" isn't installed. You can manually install by running \"npm i https\"");
+    console.error("\"https\" isn't installed. You can do install it with \"npm i https\"");
     process.exit(e.code);
-} // Make sure HTTPS is installed
+} // Ensure HTTPS is installed
 
 const express = require("express");
 const https = require("https");
