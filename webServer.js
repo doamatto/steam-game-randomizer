@@ -19,8 +19,7 @@ const config = require("./config.json");
 
 app.use(express.static("views"));
 
-
-app.get("/r", function(req,res) {
+app.get("/r", (req, res) => {
     var steamID = req.query.steamID; // Fetch steam ID from request
     var appID, appName;
     https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${steamID}&include_appinfo=1`, function(res) {
@@ -39,6 +38,6 @@ app.get("/r", function(req,res) {
     res.sendStatus(200, `{appid: ${appID}, appName: ${appName}}`); // Send data back to call
 });
 
-const listener = app.listen(config.web_port, function() {
+const listener = app.listen(config.web_port, () => {
     console.log(`The server is now running on port ${listener.address().port}`);
 });
