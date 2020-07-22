@@ -1,0 +1,21 @@
+name: "lint"
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node v14.x
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '14'
+      - name: eslint
+        run: |
+          npm i eslint -g
+          eslint .
