@@ -1,15 +1,9 @@
-//   
-//   * This file is a part of random-steam-game-picker
-//   * test-connect.js created by doamatto on 02/15/2020
-//   * © 2020 doamatto. All rights reserved.
-//   
-
 const conf = require("./config.json");
 
 try {
   require.resolve("https");
 } catch(e) {
-  console.error("\"https\" isn't installed. You can do install it with \"npm i https\"");
+  console.error("\"https\" isn't installed. You can install it with \"npm i https\"");
   process.exit(e.code);
 }
 
