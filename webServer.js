@@ -1,14 +1,14 @@
 try {
     require.resolve("express");
 } catch(e) {
-    console.error("\"express\" isn't installed. You can do install it with \"npm i express\"");
+    console.error("\"express\" isn't installed. You can install it with \"npm i express\"");
     process.exit(e.code);
 } // Ensure Express is installed
 
 try {
     require.resolve("https");
 } catch(e) {
-    console.error("\"https\" isn't installed. You can do install it with \"npm i https\"");
+    console.error("\"https\" isn't installed. You can install it with \"npm i https\"");
     process.exit(e.code);
 } // Ensure HTTPS is installed
 
