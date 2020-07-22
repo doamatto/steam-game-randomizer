@@ -36,7 +36,8 @@ const https = require("https");
 const app = express();
 const config = require("./config.json");
 
-app.use(express.static("public"));
+app.use(express.static("views"));
+
 
 app.get("/r", function(req,res) {
     var steamID = req.query.steamID; // Fetch steam ID from request
