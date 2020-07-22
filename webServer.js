@@ -23,15 +23,15 @@ app.get('/r', (req, res) => {
   var steamID = req.query.steamID // Fetch steam ID from request
   var appID, appName
   https.get(`https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${config.steamKEY}&steamid=${steamID}&include_appinfo=1`, function (res) {
-    var body = ''
-    res.on('data', function (chunk) { body += chunk })
-    res.on('end', function () {
-      var data_parsed = JSON.parse(data)
-      var random_game_no = Math.floor((Math.random() * data_parsed.response.game_count)) // Randomly grabs one of the games it finds in the JSON data
-      appID = data_parsed.response.games[random_game_no].appid
-      appName = data_parsed.response.games[random_game_no].name
+    var body
+    res.on('data', (chunk) => { body += chunk })
+    res.on('end', () => {
+      body = JSON.parse(body)
+      var randomNo = Math.floor((Math.random() * body.response.game_count)) // Randomly grabs one of the games it finds in the JSON data
+      appID = body.response.games[randomNo].appid
+      appName = body.response.games[randomNo].name
     })
-    res.on('error', function (e) {
+    res.on('error', (e) => {
       console.error("Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: " + e)
     })
   })

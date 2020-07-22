@@ -18,10 +18,10 @@ process.argv.slice(2).forEach((steamID) => {
       var gameNo = Math.floor((Math.random() * body.response.game_count)) // Randomly grabs one of the games it finds in the JSON data
       var appID = body.response.games[gameNo].appid
       var appName = body.response.games[gameNo].name
-      console.log(`Here's a random game: ${appName} (${appID}). You can open it via Steam or by going to "steam://run/${appID}"`);
-    });
+      console.log(`Here's a random game: ${appName} (${appID}). You can open it via Steam or by going to "steam://run/${appID}"`)
+    })
     res.on('error', (e) => {
-      console.error(`Seems something is broken. Make sure your token is valid, your profile is public, and that Steam's servers aren't down. If that's all a-okay, put an issue at https://github.com/doamatto/random-steam-game-picker/issues/new detailing any errors to follow. Error report: ${e}`
-    });
+      return console.error(`Ensure your Steam key is valid, your profile is public, and that Steam's servers aren't down. Error report: ${e}`)
     })
   })
+})
