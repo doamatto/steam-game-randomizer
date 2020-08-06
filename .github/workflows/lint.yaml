@@ -1,4 +1,4 @@
-name: "lint"
+name: "ESLint"
 
 on:
   push:
@@ -8,14 +8,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node v14.x
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: '14'
-      - name: eslint
-        run: |
-          npm i eslint -g
-          eslint .
+    - uses: actions/checkout@v2
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1.4.2
+      
+    - name: Install ESlint deps
+      run: yarn
+    - name: Lint JS with ESlint
+      run: |
+        yarn global add eslint
+        export PATH="$(yarn global bin):$PATH"
+        eslint gen.js
